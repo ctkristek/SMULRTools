@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="#">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>SMU LR</title>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <div class="card">
+	    <div class="card-header">BTL XLSX GENERATOR</div>
+	    <div class="card-body">
+
+		    <form id ="myForm" action="/uploaddocx" method="POST" enctype="multipart/form-data">
+    <!-- Input type file -->
+    <div class="form-group">
+	    <div class="custom-file">
+		    <input type="file" class="custom-file-input"  name="file" id="file">
+		    <label class="custom-file-label" for="file">Upload Article</label>
+	    </div>
+    </div>
+    <!-- Input type text -->
+    <div class="form-group"  id="changeShipInputs" style="display: none">
+	    <label for="perma">Perma Folder ID</label>
+	    <input type="text" class="form-control" name="perma" id="perma" placeholder="">
+    </div>
+
+    <!-- Input type checkbox -->
+    <div class="form-group">
+	    <div>
+		    <div class="form-check">
+			    <input class="form-check-input" type="checkbox" name="permaCheck" id="permaCheck" value="permaCheck">
+			    <label class="form-check-label" for="permaCheck">Generate Perma Links?</label>
+		    </div>
+	    </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" name="submit" id="submit">Create</button>
+		</form>
+	</div>
+
+
+
+
+</div>
+
+
+    <script type="application/javascript">
+        $('input[type="file"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('.custom-file-label').html(fileName);
+        });
+
+        $(function () {
+            $("#permaCheck").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#changeShipInputs").show();
+                } else {
+                    $("#changeShipInputs").hide();
+                }
+            });
+        });
+    </script>
+  </body>
+</html>
